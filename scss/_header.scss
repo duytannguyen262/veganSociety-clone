@@ -1,0 +1,325 @@
+header {
+  position: relative;
+  z-index: 999;
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 110%;
+    background-color: #fff;
+    transform: skew(0deg, -0.8deg);
+  }
+}
+
+.header {
+  &__menu {
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+  }
+
+  &__logo {
+    & a img {
+      width: 320px;
+      height: auto;
+    }
+  }
+
+  &__user-nav {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    &-item {
+      &:first-child {
+        & a {
+          & button {
+            background-color: #f8991d;
+            &:hover {
+              background-color: #f77300;
+            }
+          }
+        }
+      }
+      & a {
+        & button {
+          padding: 0.4em 1.2em;
+          background-color: #008e84;
+          color: #fff;
+          border-radius: 3em;
+          border: none;
+
+          &:hover {
+            background-color: #f8991d;
+          }
+        }
+        & img {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    & .nav {
+      & .nav {
+        &__list {
+          display: flex;
+
+          & .nav__item {
+            padding: 0.4em 0.5em 0.5em;
+
+            & a {
+              color: #008e84;
+              font-weight: 600;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 5px;
+
+              height: 100%;
+              width: 100%;
+
+              & span {
+                height: 100%;
+                display: flex;
+                align-items: center;
+              }
+
+              & img {
+                width: 15px;
+                height: 15px;
+              }
+            }
+            &:hover {
+              background-color: #199990;
+              & a {
+                color: #fff;
+                & .img {
+                  background-image: url("https://www.vegansociety.com/sites/default/themes/the_vegan_society/assets/images/icons/ico-vegan-hover.svg");
+                }
+              }
+            }
+
+            &:nth-child(5) {
+              & .img {
+                background-image: url("/assets/icons/ico-vegan.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 35px;
+                height: 35px;
+              }
+            }
+
+            &:hover .subMenu {
+              opacity: 1;
+              visibility: visible;
+
+              top: 100%;
+              left: 0;
+
+              width: 100%;
+              background-color: rgba(0, 142, 132, 0.9);
+
+              display: flex;
+              gap: 50px;
+              padding: 20px;
+
+              & .column {
+                width: 40%;
+                & .column__item {
+                  & a {
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    padding: 10px;
+                    font-size: 17px;
+
+                    &:hover {
+                      background-color: #46a598;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.subMenu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+//responsive
+.mobile--header__user-nav {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .header {
+    &__container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .header {
+    &__container {
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    &__menu {
+      display: block;
+
+      &-button {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+
+        & img {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+
+    &__logo {
+      & a img {
+        width: 238px;
+        height: auto;
+      }
+    }
+
+    &__nav {
+      display: none;
+    }
+
+    &__user-nav {
+      &-item:not(:last-child) {
+        display: none;
+      }
+    }
+  }
+
+  .mobile {
+    &--header {
+      &__user-nav {
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        &-item {
+          &:nth-child(1) {
+            & a {
+              background-image: url("/assets/icons/ico-donate.svg");
+            }
+          }
+          &:nth-child(2) {
+            & a {
+              background-image: url("/assets/icons/ico-join.svg");
+
+              &:hover {
+                background-image: url("https://www.vegansociety.com/sites/default/themes/the_vegan_society/assets/images/icons/ico-join-hover.svg");
+              }
+            }
+          }
+          &:nth-child(3) {
+            & a {
+              background-image: url("/assets/icons/ico-account.svg");
+
+              &:hover {
+                background-image: url("https://www.vegansociety.com/sites/default/themes/the_vegan_society/assets/images/icons/ico-account-hover.svg");
+              }
+            }
+          }
+
+          & a {
+            background-repeat: no-repeat;
+            background-position: center;
+            display: block;
+            width: 50px;
+            height: 50px;
+
+            border-radius: 50%;
+            box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  .side-menu {
+    background-color: #008e84;
+
+    &--nav {
+      &__item {
+        padding: 1em 1.2em 1em 2em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+        & a {
+          color: #fff;
+          font-size: 19px;
+        }
+      }
+    }
+
+    &.show ~ .main {
+      transform: translateX(400px);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+@media (max-width: 510px) {
+  .offcanvas {
+    width: 75%;
+  }
+
+  .side-menu {
+    &.show ~ .main {
+      transform: translateX(75%);
+    }
+  }
+}
+@media (max-width: 415px) {
+  .header {
+    &__logo {
+      transform: translateY(-5px);
+      & a {
+        & img {
+          display: none;
+        }
+
+        background-image: url("/assets/images/logo-vegan-society-sml.svg");
+
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
